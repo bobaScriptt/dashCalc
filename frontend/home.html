@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash Calc</title>
+    <!-- CSS reference-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Boostrap link-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- Google Web Font links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/7a790d5aa6.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- js to pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Hamburger Nav -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="home.html"
+                style="color: #ffffff !important"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="helpfulLinks.html">Helpful Links</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--*******************************************************************************-->
+    <div class="container-fluid calculatorParent">
+      <h1>Dash Calc</h1>
+      <p>Estimate your net income and taxes</p>
+
+      <div class="container-fluid calculatorChild" id="hideCalc">
+        <form id="calculatorForm">
+          <label for="inputGrossIncome">Gross income:</label><br />
+          <input
+            type="number"
+            id="inputGrossIncome"
+            name="inputGrossIncome"
+            value="0"
+            min="0"
+            step=".001"
+          /><br /><br />
+
+          <label for="inputMilesDriven">Miles driven:</label><br />
+          <input
+            type="number"
+            id="inputMilesDriven"
+            name="inputMilesDriven"
+            value="0"
+            min="0"
+            step=".001"
+          /><br /><br />
+
+          <label for="inputMPG">Vehicle's MPG:</label><br />
+          <input
+            type="number"
+            id="inputMPG"
+            name="inputMPG"
+            value="0"
+            min="0"
+            step=".001"
+          /><br /><br />
+
+          <label for="inputGasPrice">Gas price:</label><br />
+          <input
+            type="number"
+            id="inputGasPrice"
+            name="inputGasPrice"
+            value="0"
+            min="0"
+            step=".001"
+          /><br /><br />
+
+          <label for="inputTaxRate">Tax Rate</label><br />
+          <input
+            type="number"
+            id="inputTaxRate"
+            name="inputTaxRate"
+            value="0.153"
+            min="0"
+            step=".001"
+          /><br /><br />
+
+          <label for="inputMileageRate">Federal Mileage Rate</label><br />
+          <input
+            type="number"
+            id="inputMileageRate"
+            name="inputMileageRate"
+            value="0.67"
+            min="0"
+            step=".001"
+          /><br />
+          <small class="mrHelper"
+            >If you don't want to calculate with mileage deductions, change
+            mileage rate to 0.</small
+          ><br /><br />
+
+          <input type="submit" value="Calculate" /><br /><br />
+        </form>
+      </div>
+
+      <div class="container-fluid outputParent" id="outputDiv"></div>
+      <div class="container-fluid calcAgainParent">
+        <div class="row justify-content-md-center">
+          <div class="col col-sm-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btnCalcAgain"
+              onclick="location.href = 'home.html'"
+            >
+              Again
+            </button>
+          </div>
+          <div class="col-sm-2"></div>
+          <div class="col col-sm-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btnExport"
+            >
+              Export
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--*******************************************************************************-->
+    <!-- Footer Section-->
+    <footer class="footer mt-auto py-2 footer-custom text-center">
+      <div class="container">
+        <span>&copy; GRAY / BOBASCRIPT, 2024 ∞</span>
+        <a href="https://github.com/bobaScriptt" class="btn btn-rounded">
+          <i class="fa-xl fa-brands fa-github-square"></i>
+        </a>
+      </div>
+    </footer>
+    <!-- Boostrap JS link-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../backend/logic.js"></script>
+  </body>
+</html>

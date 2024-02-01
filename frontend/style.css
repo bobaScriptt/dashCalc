@@ -1,0 +1,179 @@
+/* tutorial: https://www.youtube.com/watch?v=wARbgs5Fmuw */
+/* This allows responsive font scaling to be easily manipulated with a default set (mobile) and one Desktop scaling w/ Media query. */
+:root {
+  --ff-body: "Chakra Petch", sans-serif;
+
+  /* Clamp prevents browsers from over/under sizing from scaling. 
+    clam(min rem, set vw + amount, max rem) */
+  --fs-xl: clamp(3rem, 16vw + 1rem, 10rem); /* Header font */
+  --fs-lg: 1.8rem; /* Body title font */
+  --fs-md: 1.4rem; /* Main body font */
+  --fs-md2: 0.8rem; /* Main body font for small text*/
+  --fs-sm: 1.4rem; /* Subtitle font */
+}
+/* Min width has a "mobile first" mentality */
+@media (min-width: 20rem) {
+  :root {
+    --fs-xl: clamp(6rem, 16vw + 1rem, 10rem); /* Used for Welcome screen */
+    --fs-lg: 2rem; /* Body title font */
+    --fs-md: 1rem; /* Main body font */
+    --fs-md2: 0.8rem; /* Main body font */
+    --fs-sm: 1.5rem; /* Subtitle font */
+  }
+}
+/************************/
+/* Generic Stuff */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #ff0000;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  height: 100%;
+}
+
+.btn-default {
+  background-color: #ffffff;
+  color: #7a7766;
+  border-color: #7a7766;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  background-color: #7a7766;
+  color: #818589;
+  border-color: #ffffff;
+}
+a:link {
+  color: #954535;
+}
+
+/* visited link */
+a:visited {
+  color: #954535;
+}
+
+/* mouse over link */
+a:hover {
+  color: #e2dfd2;
+}
+
+/* selected link */
+a:active {
+  color: #954535;
+}
+
+/************************/
+/* Navigation SECTION */
+.navbar-custom {
+  background-color: #954535;
+  font-family: "Chakra Petch", sans-serif;
+}
+.nav-link {
+  color: #f9f6ee !important;
+}
+.nav-link:hover {
+  color: #7a7766 !important;
+}
+
+/************************/
+/* MAIN SECTION -- Calculator*/
+.calculatorParent {
+  padding: 55px;
+  margin-top: 40px;
+  height: 100vh;
+  background-color: #faf9f6;
+  text-align: center;
+  color: #954535;
+  font-family: "Righteous", cursive;
+  font-size: var(--fs-md);
+}
+
+.outputParent {
+  padding: 55px;
+  max-width: 70%;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #f9f6ee;
+  color: #818589;
+  font-size: var(--fs-md);
+}
+
+.calculatorChild {
+  padding: 55px;
+  max-width: 70%;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #f9f6ee;
+  color: #818589; 
+  font-size: var(--fs-md);
+}
+input {
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 5px;
+  background-color: #faf9f6;
+  border-color: #818589;
+  color: #818589;
+}
+.mrHelper {
+  color: #954535;
+  font-size: var(--fs-md2);
+}
+.calcAgainParent {
+  max-width: 70%;
+  padding: 25px;
+  border-radius: 15px;
+  color: #818589;
+}
+#btnCalcAgain {
+  background-color: gray;
+  border: 1px solid #f9f6ee;
+}
+#btnExport{
+  background-color: #954535;
+}
+
+/************************/
+/* MAIN SECTION -- Helpful Links */
+.helpfulParent {
+  margin-top: 50px;
+  height: 100vh;
+  padding: 15px;
+  background-color: #faf9f6;
+  text-align: center;
+  color: #954535;
+  font-family: "Righteous", cursive;
+  font-size: var(--fs-md);
+}
+.helpfulChild {
+  padding: 15px;
+  max-width: 70%;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #f9f6ee;
+  color: #818589;
+  font-size: var(--fs-md);
+}
+/************************/
+/* FOOTER SECTION */
+.footer-custom {
+  background-color: #e2dfd2;
+  color: rgb(167, 167, 167);
+  text-align: center;
+}
+
+.btn.btn-social-icon {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+
+.btn.btn-rounded {
+  border-radius: 20px;
+}
