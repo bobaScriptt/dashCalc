@@ -37,14 +37,11 @@ document
     var gasCost = (milesDriven / mpg) * gasPrice;
     var businessProfit = grossIncome - mileageDeductions;
     var taxAmount = businessProfit * taxRate;
-
-    var netPay;
-    if (taxAmount > 0) {
-      netPay = grossIncome - taxAmount - gasCost;
-    } else {
-      netPay = grossIncome - gasCost;
-    }
-
+    
+    taxAmount = Math.max(0, taxAmount - mileageDeductions);
+    
+    var netPay = grossIncome - taxAmount - gasCost;
+    
     var results = {
       grossIncome: grossIncome,
       gasCost: gasCost,
