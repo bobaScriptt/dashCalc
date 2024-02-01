@@ -12,7 +12,7 @@
   --fs-sm: 1.4rem; /* Subtitle font */
 }
 /* Min width has a "mobile first" mentality */
-@media (min-width: 20rem) {
+@media (min-width: 40em) {
   :root {
     --fs-xl: clamp(6rem, 16vw + 1rem, 10rem); /* Used for Welcome screen */
     --fs-lg: 2rem; /* Body title font */
@@ -27,14 +27,8 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background-color: #ff0000;
+  background-color: #954535;
 }
-
-body {
-  scroll-snap-type: y mandatory;
-  height: 100%;
-}
-
 .btn-default {
   background-color: #ffffff;
   color: #7a7766;
@@ -84,9 +78,9 @@ a:active {
 /************************/
 /* MAIN SECTION -- Calculator*/
 .calculatorParent {
+  min-height: 35vh;
   padding: 55px;
   margin-top: 40px;
-  height: 100vh;
   background-color: #faf9f6;
   text-align: center;
   color: #954535;
@@ -95,8 +89,8 @@ a:active {
 }
 
 .outputParent {
+  min-height: 35vh;
   padding: 55px;
-  max-width: 70%;
   border-radius: 15px;
   text-align: center;
   background-color: #f9f6ee;
@@ -106,7 +100,6 @@ a:active {
 
 .calculatorChild {
   padding: 55px;
-  max-width: 70%;
   border-radius: 15px;
   text-align: center;
   background-color: #f9f6ee;
@@ -143,7 +136,7 @@ input {
 /* MAIN SECTION -- Helpful Links */
 .helpfulParent {
   margin-top: 50px;
-  height: 100vh;
+  min-height: 100vh;
   padding: 15px;
   background-color: #faf9f6;
   text-align: center;
