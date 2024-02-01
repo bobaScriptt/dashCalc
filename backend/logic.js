@@ -114,7 +114,7 @@ document
       doc.setFontSize(16);
       doc.text(
         "Taxes owed: $" +
-          Math.max(0, results.taxAmount - results.mileageDeductions).toFixed(2),
+          results.taxAmountAfterDeductions.toFixed(2),
         10,
         110
       );
