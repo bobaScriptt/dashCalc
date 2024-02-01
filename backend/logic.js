@@ -37,15 +37,14 @@ document
     var gasCost = (milesDriven / mpg) * gasPrice;
     var businessProfit = grossIncome - mileageDeductions;
     var taxAmount = businessProfit * taxRate;
-    
-    taxAmount = Math.max(0, taxAmount - mileageDeductions);
-    
-    var netPay = grossIncome - taxAmount - gasCost;
+    var taxAmountAfterDeductions = Math.max(0, taxAmount - mileageDeductions);
+    var netPay = grossIncome - taxAmountAfterDeductions - gasCost;
     
     var results = {
       grossIncome: grossIncome,
       gasCost: gasCost,
       taxAmount: taxAmount,
+      taxAmountAfterDeductions: taxAmountAfterDeductions,
       mileageDeductions: mileageDeductions,
       netPay: netPay,
     };
@@ -76,7 +75,7 @@ document
       "<br><br>" +
       "<h2><u>Remaining Taxes</u></h2><br>" +
       "<strong>Taxes owed:</strong> $" +
-      Math.max(0, taxAmount - mileageDeductions).toFixed(2) +
+      taxAmountAfterDeductions.toFixed(2) +
       "<br><br>" +
       "<h2><u>Take Home Income</u></h2><br>" +
       "<strong>Total income:</strong> $" +
